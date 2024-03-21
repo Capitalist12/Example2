@@ -1,0 +1,58 @@
+* Mobile View */
+/* No media queries for mobile view (Mobile-first approach) */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.box figure {
+    border-radius: 50%; /* Create circular shape for images */
+}
+
+.box p {
+    /* Replace content in paragraph tag */
+}
+
+/* Tablet View */
+@media only screen and (min-width: 772px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* Two column grid */
+    }
+
+    .box:last-child {
+        grid-column: span 2; /* Last figure takes up both columns */
+    }
+}
+
+/* Large Screen View */
+@media only screen and (min-width: 992px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr); /* Three column grid */
+    }
+
+    .box:nth-child(3n) {
+        grid-column: span 2; /* Every third figure takes up both columns */
+    }
+
+    .box figure {
+        border-radius: 0; /* Remove border radius from figures */
+    }
+}
+
+/* prefers-reduced-motion Media Query */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto; /* Remove scroll behavior */
+    }
+}
+
+/* Dark Color Scheme Media Query */
+@media (prefers-color-scheme: dark) {
+    .box {
+        background-color: #333; /* Dark background color */
+        color: #fff; /* Lighter font color */
+        border-color: #000; /* Black border color */
+    }
+}
+Hãy nhớ thay thế tất cả các 
